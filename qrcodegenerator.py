@@ -21,14 +21,14 @@ class QRCodeGenerator(QWidget):
         self.save_button = QPushButton("QR Code speichern")
         self.save_button.clicked.connect(self.save_qr_code)
 
-        self.qr_img_label = QLabel(self)  # Label zum Anzeigen des QR-Codes
-        self.qr_img_label.setAlignment(Qt.AlignCenter)  # Zentrieren des QR-Codes im Label
+        self.qr_img_label = QLabel(self)
+        self.qr_img_label.setAlignment(Qt.AlignCenter)
 
         self.layout = QVBoxLayout()
         self.layout.addWidget(self.label)
         self.layout.addWidget(self.link_input)
         self.layout.addWidget(self.convert_button)
-        self.layout.addWidget(self.qr_img_label)  # Hinzufügen des Labels zum Layout
+        self.layout.addWidget(self.qr_img_label)
         self.layout.addWidget(self.save_button)
 
         self.setLayout(self.layout)
@@ -51,7 +51,7 @@ class QRCodeGenerator(QWidget):
             qr_img_pixmap = QPixmap()
             qr_img_pixmap.loadFromData(qr_img_bytes.getvalue())
 
-            self.qr_img_label.setPixmap(qr_img_pixmap)  # QR-Code im vorhandenen Label aktualisieren
+            self.qr_img_label.setPixmap(qr_img_pixmap)
 
     def save_qr_code(self):
         file_path, _ = QFileDialog.getSaveFileName(self, "QR Code speichern", "", "PNG Files (*.png)")
